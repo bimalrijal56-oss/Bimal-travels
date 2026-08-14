@@ -30,7 +30,7 @@ DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 ALLOWED_HOSTS = ["bimal-travels-production.up.railway.app", "localhost", "127.0.0.1"]
 
 CSRF_TRUSTED_ORIGINS = [
-    `${API_BASE_URL}',
+    'https://bimal-travels-production.up.railway.app',
 ]
 
 
