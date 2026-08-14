@@ -49,6 +49,15 @@ body {
   line-height: 1.7;
 }
 
+html, body, #root {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 /* ---- Typography ---- */
 h1,
 h2,
