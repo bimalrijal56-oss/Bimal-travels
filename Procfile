@@ -1,1 +1,1 @@
-web: gunicorn bimaltravels.wsgi
+web: gunicorn bimal_travels.wsgi 
