@@ -6,6 +6,7 @@ import { Formik, Field, ErrorMessage, Form } from 'formik'
 import * as Yup from 'yup'
 import Swal from 'sweetalert2'
 import axios from 'axios'
+import { API_BASE_URL } from '../config';
 
 const Register = () => {
     const [showPassword, setShowPassword] = useState(false)
@@ -26,7 +27,7 @@ const Register = () => {
 
     const handleSubmit = async (values, { resetForm, setSubmitting }) => {
         try {
-            await axios.post('http://localhost:5173/register', {
+            await axios.post(`${API_BASE_URL}/sign-up`, {
                 username: values.uname,
                 email: values.email,
                 password: values.pwd,
@@ -204,7 +205,7 @@ const Register = () => {
                                                     onClick={() => setShowPassword((prev) => !prev)}
                                                     aria-label={showPassword ? 'Hide password' : 'Show password'}
                                                 >
-                                                    <i className={`bi ${showPassword ? 'bi-eye-slash' : 'bi-eye'}`} id="registerEyeIcon"></i>
+                                                    <i className={`bi ${ showPassword? 'bi-eye-slash': 'bi-eye' }`} id="registerEyeIcon"></i>
                                                 </button>
                                             </div>
                                         <ErrorMessage name='pwd'>
@@ -239,7 +240,7 @@ const Register = () => {
                                                 onClick={() => setShowConfirmPassword((prev) => !prev)}
                                                 aria-label={showConfirmPassword ? 'Hide confirm password' : 'Show confirm password'}
                                             >
-                                                <i className={`bi ${showConfirmPassword ? 'bi-eye-slash' : 'bi-eye'}`} id="confirmEyeIcon"></i>
+                                                <i className={`bi ${ showConfirmPassword? 'bi-eye-slash': 'bi-eye' }`} id="confirmEyeIcon"></i>
                                             </button>
                                         </div>
                                         <ErrorMessage name='cpwd'>

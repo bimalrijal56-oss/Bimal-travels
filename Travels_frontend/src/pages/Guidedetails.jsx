@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import Ratingstar from '../compoenents/Ratingstar'
+import { API_BASE_URL } from '../config';
 
 const Guidedetails = () => {
     const { id } = useParams()
@@ -9,7 +10,7 @@ const Guidedetails = () => {
 
     useEffect(() => {
         axios
-            .get('http://127.0.0.1:8000/api/guides/?format=json')
+            .get(`${API_BASE_URL}/api/guides/?format=json`)
             .then((res) => setGuides(res.data))
             .catch((err) => console.log(err))
     }, [])

@@ -5,6 +5,7 @@ import axios from 'axios'
 import Counter from "../compoenents/Counter";
 import Ratingstar from '../compoenents/Ratingstar';
 import { toast } from 'react-toastify';
+import { API_BASE_URL } from '../config';
 
 const Homepage = () => {
   const [travels, setTravels] = useState([])
@@ -29,7 +30,7 @@ const Homepage = () => {
 
   useEffect(() => {
     axios
-      .get("http://127.0.0.1:8000/api/travels?format=json")
+      .get(`${API_BASE_URL}/api/travels?format=json`)
       .then((res) => setTravels(res.data))
       .catch((err) => console.log(err))
   }, [])
@@ -39,7 +40,7 @@ const Homepage = () => {
 
   useEffect(() => {
     axios
-      .get("http://127.0.0.1:8000/api/guides/?format=json")
+      .get(`${API_BASE_URL}/api/guides/?format=json`)
       .then((res) => setGuides(res.data))
       .catch((err) => console.log(err))
   }, [])
@@ -49,7 +50,7 @@ const Homepage = () => {
 
   useEffect(() => {
     axios
-      .get("http://127.0.0.1:8000/api/reviews/?format=json")
+      .get(`${API_BASE_URL}/api/reviews/?format=json`)
       .then((res) => setReviews(res.data))
       .catch((err) => console.log(err))
 

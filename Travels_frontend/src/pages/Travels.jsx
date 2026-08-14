@@ -3,6 +3,7 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 import Ratingstar from '../compoenents/Ratingstar'
 import { toast } from 'react-toastify'
+import { API_BASE_URL } from '../config';
 
 const Travels = () => {
 
@@ -11,7 +12,7 @@ const Travels = () => {
   const [favorites, setFavorites] = useState([])
 
   useEffect(() => {
-    axios.get('http://127.0.0.1:8000/api/travels?format=json')
+    axios.get(`${API_BASE_URL}/api/travels?format=json`)
       .then(res => setTravels(res.data))
       .catch(err => console.log(err))
   }, [])
@@ -131,7 +132,7 @@ const Travels = () => {
                             <span className="count">({item.rating})</span>
                           </div>
                           <Link
-                            to={`/tourdetail/${item.id}`}
+                            to={`/ tourdetail / ${ item.id }`}
                             className="btn-accent"
                             style={{ padding: '8px 18px', fontSize: '0.82rem' }}
                           >

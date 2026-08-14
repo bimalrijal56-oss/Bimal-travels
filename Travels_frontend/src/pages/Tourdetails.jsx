@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { Link, useParams, useNavigate } from 'react-router-dom'
 import Ratingstar from '../compoenents/Ratingstar'
 import Swal from 'sweetalert2'
+import { API_BASE_URL } from '../config';
 
 const Tourdetails = () => {
     const { id } = useParams()
@@ -16,7 +17,7 @@ const Tourdetails = () => {
 
     useEffect(() => {
         axios
-            .get("http://127.0.0.1:8000/api/travels?format=json")
+            .get(`${API_BASE_URL}/api/travels?format=json`)
             .then((res) => setTravels(res.data))
             .catch((err) => console.log(err))
     }, [])
@@ -93,7 +94,7 @@ const Tourdetails = () => {
         }
 
         try {
-            await axios.post(`http://127.0.0.1:8000/api/travel_booking/${item.id}`, {
+            await axios.post(`${API_BASE_URL}/api/travel_booking/${item.id}`, {
                 customer_name: authUser?.username || 'Guest',
                 date: tourDate,
                 total_people: Number(tourTravelers) || 1,

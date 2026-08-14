@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import { FaMountainCity, FaEarthAsia, FaUmbrellaBeach, FaMountain } from 'react-icons/fa6'
+import { API_BASE_URL } from '../config';
 
 const MyBooking = () => {
     const [bookings, setBookings] = useState([])
@@ -23,7 +24,7 @@ const MyBooking = () => {
             return
         }
 
-        axios.get('http://127.0.0.1:8000/api/bookings/?format=json')
+        axios.get(`${API_BASE_URL}/api/bookings/?format=json`)
             .then(res => {
                 const userBookings = (res.data || []).filter((item) => item.customer_name === authUser.username)
                 setBookings(userBookings)
@@ -132,7 +133,7 @@ const MyBooking = () => {
 
                                     filteredBookings.map((item) => (
                                         <div className="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1000" key={item.id}>
-                                            <Link to={`/bookingdetail/${item.id}`} style={{ textDecoration: 'none' }}>
+                                            <Link to={`/ bookingdetail / ${ item.id }`} style={{ textDecoration: 'none' }}>
                                                 <div className="dest-card">
                                                     <img src={item.travel_details?.image} alt={item.travel_details?.title} />
                                                     <div className="dest-card-overlay">

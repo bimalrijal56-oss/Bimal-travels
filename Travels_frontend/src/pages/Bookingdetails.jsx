@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import Ratingstar from '../compoenents/Ratingstar'
+import { API_BASE_URL } from '../config';
 
 const Bookingdetails = () => {
     const { id } = useParams()
@@ -32,7 +33,7 @@ const Bookingdetails = () => {
             return
         }
 
-        axios.get('http://127.0.0.1:8000/api/bookings/?format=json')
+        axios.get(`${API_BASE_URL}/api/bookings/?format=json`)
             .then((res) => {
                 const userBookings = (res.data || []).filter((item) => item.customer_name === authUser.username)
                 setBooking(userBookings)

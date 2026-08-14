@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import { FaMountainCity, FaEarthAsia, FaUmbrellaBeach, FaMountain } from 'react-icons/fa6'
+import { API_BASE_URL } from '../config';
 
 const Destination = () => {
     const [travels, setTravels] = useState([])
@@ -9,7 +10,7 @@ const Destination = () => {
     const [activeRegion, setActiveRegion] = useState('')
 
     useEffect(() => {
-        axios.get('http://127.0.0.1:8000/api/travels?format=json')
+        axios.get(`${API_BASE_URL}/api/travels?format=json`)
             .then(res => setTravels(res.data))
             .catch(err => console.log(err))
     }, [])

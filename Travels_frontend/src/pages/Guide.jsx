@@ -2,13 +2,13 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import Ratingstar from '../compoenents/Ratingstar'
-
+import { API_BASE_URL } from '../config';
 
 const Guide = () => {
     const [guides, setGuides] = useState([])
 
     useEffect(() => {
-        axios.get('http://127.0.0.1:8000/api/guides/?format=json')
+        axios.get(`${API_BASE_URL}/api/guides/?format=json`)
             .then(res => setGuides(res.data))
             .catch(err => console.log(err))
     }, [])
@@ -89,7 +89,7 @@ const Guide = () => {
                                         <div className="guide-price">
                                             <span>${item.charges}</span>/day
                                         </div>
-                                        <Link to={`/guidedetail/${item.id}`} className="btn-accent" style={{ width: '90%', textAlign: 'center', border: 'none', display: 'inline-block', margin: '0 auto' }}>
+                                        <Link to={`/ guidedetail / ${ item.id }`} className="btn-accent" style={{ width: '90%', textAlign: 'center', border: 'none', display: 'inline-block', margin: '0 auto' }}>
                                             Hire Guide
                                         </Link>
                                     </div>
