@@ -102,11 +102,11 @@ WSGI_APPLICATION = 'bimal_travels.wsgi.application'
 
 if os.environ.get('DATABASE_URL'):
     # Railway PostgreSQL
-    DATABASES = {
-        'default': dj_database_url.config(
-            conn_max_age=600
-        )
-    }
+   DATABASES = {
+    'default': dj_database_url.config(
+        default=os.environ.get('DATABASE_URL')
+    )
+}
 else:
     # Local MySQL
     DATABASES = {
