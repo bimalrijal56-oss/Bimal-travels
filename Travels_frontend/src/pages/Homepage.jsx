@@ -84,7 +84,7 @@ const Homepage = () => {
           <span></span><span></span><span></span><span></span><span></span>
           <span></span><span></span><span></span><span></span><span></span>
         </div>
-        <div className="container hero-content">
+        <div className="container hero-content px-3 px-sm-4 px-md-0">
           <div className="row align-items-center">
             <div className="col-lg-6">
               <div className="hero-badge">
@@ -102,7 +102,7 @@ const Homepage = () => {
                   <i className="bi bi-compass me-2"></i>Explore Tours
                 </Link>
                 <button type="button" onClick={openVideoPopup} className="btn-accent-outline" style={{ color: '#fff', borderColor: 'rgba(255,255,255,0.5)', background: 'transparent' }}>
-                  <i className="bi bi-play-circle me-2"></i>Watch Video
+                  <i className="bi bi-play-circle me-3"></i>Watch Video
                 </button>
               </div>
               <div className="hero-stats">

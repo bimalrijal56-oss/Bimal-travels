@@ -50,7 +50,7 @@ const Login = () => {
 
         setIsSubmitting(true)
         try {
-            const response = await axios.post(`${ API_BASE_URL } / login`, {
+            const response = await axios.post(`${ API_BASE_URL }/login`, {
                 username: username.trim(),
                 password,
             })
